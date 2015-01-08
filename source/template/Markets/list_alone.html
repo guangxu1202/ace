@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print content('info')/}">
+<meta name="keywords" content="{print content('keywords')/}">
+<title>{print content('title')/}_{print webinfo('web_name')/}</title>
+<!-- css -->
+    <link type="text/css" rel="stylesheet" href="{path template/}/style/common.css" media="screen" />
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript" src="{path template/}/js/prototype.js"></script>
+<script type="text/javascript" src="{path template/}/js/effects.js"></script>
+<script type="text/javascript" src="{path template/}/js/accordion.js"></script>
+<script type="text/javascript">
+    Event.observe(window, 'load', loadAccordions, false);
+    function loadAccordions() {
+      var bottomAccordion = new accordion('vertical_container');
+      
+      var nestedVerticalAccordion = new accordion('vertical_nested_container', {
+        classNames : {
+          toggle : 'vertical_accordion_toggle',
+          toggleActive : 'vertical_accordion_toggle_active',
+          content : 'vertical_accordion_content'
+        }
+      });
+      
+      bottomAccordion.activate($$('#vertical_container .accordion_toggle')[0]);
+      
+      // Open second one
+      topAccordion.activate($$('#horizontal_container .horizontal_accordion_toggle')[2]);
+    }
+    
+</script>
+
+
+
+</head>
+<body>
+{include head/}
+
+
+<div class="wrap mb20">
+  <div class="col2 clearfix">
+    {include left/}
+    <div class="main">
+      <div class="mainbox">
+        <div class="maintitle pr">
+          <div class="fr">{position source=position/}</div>
+          <b class="tit">{print get_cate(out_id())/}</b>
+        </div>
+        <div class="mainbody">
+          <!-- <h1 class="ntitle">{print content('title')/}</h1>
+          <div class="ndec">
+            <span>点击:<script language="javascript" src="{path includes/}/hits.php?id={print content('id')/}"></script></span>
+            <span>日期:{print date('Y-m-d H:m:s',content('updatetime'))/}</span>
+      
+          </div> -->
+          <div class="ncontent">
+            <!-- <div class="arc_info">{print content('info')/}</div> --><!--摘要-->
+            {print content('content')/}
+            <div class="page_fy">
+              {print body_pages()/}
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{include foot/}
+</body>
+</html>

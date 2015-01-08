@@ -1,0 +1,53 @@
+{if out_id()==5 or out_id()==6 or out_id()==7 or out_id()==8 or out_id()==31}
+<div class="innerheader mb20 inner001">
+{/if}
+{if out_id()==9 or out_id()==10 or out_id()==11 or out_id()==12 or out_id()==13 or out_id()==32}
+<div class="innerheader mb20 inner002">
+{/if}
+{if out_id()==15 or out_id()==16 or out_id()==17 or out_id()==18}
+<div class="innerheader mb20 inner003">
+{/if}
+{if out_id()==19 or out_id()==20 or out_id()==21 or out_id()==22 or out_id()==23 or out_id()==24}
+<div class="innerheader mb20 inner004">
+{/if}
+{if out_id()==26}
+<div class="innerheader mb20 inner005">
+{/if}
+{if out_id()==27 or out_id()==28 or out_id()==29 or out_id()==30}
+<div class="innerheader mb20 inner006">
+{/if}
+
+	<div class="wrap">
+		<div class="hotline">
+	      <div class="fl">
+	        仲泰业投资管理有限公司<br>
+	        <span>长三角交易所131号会员单位</span>
+	      </div>
+	      财富热线：4000897771
+	    </div>
+		<div class="nav">
+			<div class="logo"><img src="{path template/}/images/logo.gif"></div>
+			<ul>
+
+	        <li class="{print get_web_param('index_focus')/}"><a href="{path index/}" class="n">首页</a></li>
+
+	         {loop source=nav_middle() item=$nav_child} 
+	        <li class="{print $nav_child['class']/}"><a href="{print $nav_child['url']/}" class="n" {print $nav_child['target']/}><span>{print $nav_child['cate_name']/}</span></a>
+	          {if $nav_child['id']!=26}
+	          <div class="hide nav_sub opac80 ">
+	            <div class="cbox c{print $nav_child['id']/}">
+	            {loop source=$nav_child['child']}
+	            <a href="{print $v['url']/}"> {print $v['cate_name']/} </a>
+	            {/loop}
+	            </div>
+	          </div>
+	          {/if}
+	                            
+	      </li>
+	      {/loop}
+	      </ul>
+		</div>
+
+	</div>
+	
+</div>

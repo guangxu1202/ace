@@ -1,0 +1,55 @@
+<div class="footer">
+	<div class="wrap mb20 clearfix">
+		<div class="friends fl w380">
+			<div class="fhead">
+				合作银行
+				<img src="{path template/}/images/line.gif">
+			</div>
+			<div class="fbody flogo">
+				<a href="http://www.ccb.com/" target="_blank"><img src="{path template/}/images/link002.gif"></a>
+				<a href="http://www.hxb.com.cn/" target="_blank"><img src="{path template/}/images/link003.gif"></a>
+				<a href="http://www.icbc.com.cn/" target="_blank"><img src="{path template/}/images/link004.gif"></a>
+				<a href="http://www.abchina.com/" target="_blank"><img src="{path template/}/images/link005.gif"></a>
+			</div>
+		</div>
+		<div class="friends fl w380 ml20">
+			<div class="fhead">
+				合作单位
+				<img src="{path template/}/images/line.gif">
+			</div>
+			<div class="fbody flogo">
+				<a href="http://www.yrdce.com/" target="_blank"><img src="{path template/}/images/link001.gif"></a>
+			</div>
+		</div>
+
+		<div class="friends fr w380">
+			<div class="fhead">
+				友情链接
+				<img src="{path template/}/images/line.gif">
+			</div>
+			<div class="fbody flink">
+				{assign source=get_link(0) name=logo/}
+
+	            {loop source=$logo}
+                    <a href="{print $v['link_url']/}" title="{print $v['link_name']/}" target="_blank">
+                    {print $v['link_name']/}
+                    </a>
+                {/loop}
+			</div>
+		</div>
+	</div>
+	<div class="wrap pr footlink clearfix">
+		<div class="footlogo"><img src="{path template/}/images/logo.png"></div>
+		<div class="flinks fr">
+			<a href="{path index/}">首页</a>
+			{loop source=nav_middle() item=$nav_child} 
+			<a href="{print $nav_child['url']/}" class="n" {print $nav_child['target']/}>{print $nav_child['cate_name']/}</a>
+			{/loop}
+		</div>
+		<!-- <div class="code"><img src="{path template/}/images/code.gif"></div> -->
+	</div>
+</div>
+
+<!-- js -->
+
+  <script type="text/javascript" src="{path template/}/js/index1.js"></script>

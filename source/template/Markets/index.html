@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="{print webinfo('web_description')/}">
+<meta name="keywords" content="{print webinfo('web_keywords')/}">
+<title>{if webinfo('web_index_name')}{print webinfo('web_index_name')/}{else}{print webinfo('web_name')/}{/if}</title>
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="{path template/}/style/common.css" media="screen" />
+      <script type="text/javascript" src="{path template/}/js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+
+<div class="train">
+  <div class="train_title">
+    仲泰业客户服务直通平台
+  </div>
+  <div class="train_body">
+    <ul>
+      <li class="tc01"><a href="{path account/}/Formal.php">网上开户 &gt;&gt;</a></li>
+      <li class="tc02"><a href="#">预约开户 &gt;&gt;</a></li>
+      <li class="tc03"><a href="{path account/}/Virtual.php">开通模拟账户 &gt;&gt;</a></li>
+      <li class="tc04"><a href="#">在线客服 &gt;&gt;</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="header mb20 pr">
+  <div class="wrap">
+    <div class="hotline">
+      <div class="fl">
+        仲泰业投资管理有限公司<br>
+        <span>长三角交易所131号会员单位</span>
+      </div>
+      财富热线：4000897771
+    </div>
+    <div class="nav">
+      <div class="logo"><img src="{path template/}/images/logo.gif"></div>
+      <ul>
+
+        <li class="{print get_web_param('index_focus')/}"><a href="{path index/}" class="n">首页</a></li>
+         {loop source=nav_middle() item=$nav_child} 
+        <li class="{print $nav_child['class']/}"><a href="{print $nav_child['url']/}" class="n" {print $nav_child['target']/}><span>{print $nav_child['cate_name']/}</span></a>
+          {if $nav_child['id']!=26}
+          <div class="hide nav_sub opac80 ">
+            <div class="cbox c{print $nav_child['id']/}">
+            {loop source=$nav_child['child']}
+            <a href="{print $v['url']/}"> {print $v['cate_name']/} </a>
+            {/loop}
+            </div>
+          </div>
+          {/if}
+                            
+      </li>
+      {/loop}
+      </ul>
+    </div>
+
+    
+  </div>
+  <div class="banner">
+    <ul>
+      <li class="b01">
+        <a href="{path account/}/650.html" target="_blank"></a>
+      </li>
+      <li class="b02"><!-- <a href="#" target="_blank"></a> --></li>
+      <li class="b03"><a href="{path account/}/008.html" target="_blank"></a></li>
+      <li class="b04"><a href="{path down/}/down.php?id=24" target="_blank"></a></li>
+    </ul>
+  </div>
+  <div class="banner_small">
+    <div class="wrap">
+      <ul>
+        <li onclick="change(0)" class="focus"></li>
+        <li onclick="change(1)"></li>
+        <li onclick="change(2)"></li>
+        <li onclick="change(3)"></li>
+      </ul>
+      <!-- <dl onclick="change(0)" class="focus">
+        <dt><img src="{path template/}/images/banner001.jpg"></dt>
+        <dd>方便、安全、快捷</dd>
+      </dl>
+      <dl onclick="change(1)">
+        <dt><img src="{path template/}/images/banner002.jpg"></dt>
+        <dd>微观财经手机客户端即将上市</dd>
+      </dl>
+      <dl onclick="change(2)">
+        <dt><img src="{path template/}/images/banner003.jpg"></dt>
+        <dd>中国力争黄金定价权<br>新批准三家银行进口黄金</dd>
+      </dl>
+      <dl onclick="change(3)">
+        <dt><img src="{path template/}/images/banner003.jpg"></dt>
+        <dd>中国力争黄金定价权<br>新批准三家银行进口黄金</dd>
+      </dl> -->
+
+    </div>
+  </div>
+
+  <div class="banner_bg"></div>
+  
+</div>
+
+
+
+
+
+
+<div class="wrap clearfix mb20">
+  <div class="ibox w698 fl">
+    <div class="ihead">
+      <div class="tab_t fr">
+        <span class="focus" onclick="tab_c(this,0)">白银</span>
+        <span onclick="tab_c(this,1)">铜</span>
+        <span onclick="tab_c(this,2)">镍</span>
+      </div>
+      <b>行情走势图</b>
+    </div>
+    <div class="ibody">
+      <div class="tab_img">
+        <img src="http://58.215.166.110:16924/hqweb/image/AG100KGKLine.png" width="550" height="270"/>
+      </div>
+      <div class="tab_img hide">
+        <img src="http://58.215.166.110:16924/hqweb/image/CU10TKLine.png" width="550" height="270"/>
+      </div>
+      <div class="tab_img hide">
+        <img src="http://58.215.166.110:16924/hqweb/image/NI1000KGKLine.png" width="550" height="270"/>
+      </div>
+    </div>
+  </div>
+  <div class="ibox fr w460">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=31" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>市场公告</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        {loop source=get_cate_content($cate_id='31',$limit='0,1') }
+        <dl class="top1 clearfix">
+          <dt><img src="{print $v['thumb_pic']/}" width="140" height="110"  border="0" title="{print $v['title']/}" /></dt>
+          <dd>
+            <div class="top1_t"><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print $v['title']/}</a></div>
+            <div class="top1_d">
+              {print cn_substr($v['cate_short'],110)/}
+            </div>
+          </dd>
+        </dl>
+        {/loop}
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='31',$limit='1,4') }
+          <li>
+            <em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em>
+            <a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],45)/}</a>
+          </li>
+          {/loop}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="laster mb20">
+  <div class="wrap clearfix">
+    <div class="fl last_title">
+      <p>LATEST NEWS</p>
+      <p>交易所最新动态</p>
+      <a href="{path article/}/article.php?id=32">MORE 更多动态</a>
+    </div>
+    <div class="last_news w800 pr fr switchbox">
+      <a href="javascript:void(0)" class="last_p last_left switchLeft"></a>
+      <a href="javascript:void(0)" class="last_p last_right switchRight"></a>
+      <div class="last_box">
+        <ul class="last_list clearfix switchlist">
+          {loop source=get_cate_content($cate_id='32',$limit='0,3') }
+          <li class="swtchItem">
+            <img src="{print $v['thumb_pic']/}" width="140" height="110"  border="0" title="{print $v['title']/}" />
+            <span class="igrey">{print date('Y-m-d',$v['updatetime'])/}</span>
+            <h6 class="ititle"><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print $v['title']/}</a></h6>
+            <p class="icontent">{print $v['cate_short']/}</p>
+            <a href="{print $v['url']/}" {print $v['target']/} class="igrey" style="{print $v['style']/}">查看详细....</a>
+          </li>
+          {/loop}
+
+        </ul>
+      </div>
+      
+      <div class="last_statu switchStatu">
+        <span class="focus"></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap clearfix mb20">
+  <div class="ibox fl w380">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=12" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>财经要闻</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='12',$limit='0,7') }
+          <li><em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],30)/}</a></li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ibox fl w380 ml20">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=10" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>每日市场行情分析</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='10',$limit='0,7') }
+          <li><em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],30)/}</a></li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ibox fr w380">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=11" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>每周市场行情分析</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='11',$limit='0,7') }
+          <li><em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],30)/}</a></li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap clearfix mb20">
+  <div class="ad fl"> <a href="{path account/}/Formal.php"><img src="{path template/}/images/ad01.jpg"></a></div>
+  <div class="fast_link fr">
+    <img src="{path template/}/images/dcode.jpg">
+    <!-- <ul>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico001.gif"></a>
+        <a href="#">会员申请</a>
+      </li>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico002.gif"></a>
+        <a href="#">出入金流程</a>
+      </li>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico003.gif"></a>
+        <a href="#">政策法规</a>
+      </li>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico004.gif"></a>
+        <a href="#">上市品种</a>
+      </li>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico005.gif"></a>
+        <a href="#">软件下载</a>
+      </li>
+      <li>
+        <a href="#"><img src="{path template/}/images/ico006.gif"></a>
+        <a href="#">联系我们</a>
+      </li>
+    </ul> -->
+  </div>
+</div>
+
+<div class="wrap clearfix mb20">
+  <div class="ibox">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=26" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <img src="{path template/}/images/dun.png" height="30" style="vertical-align:middle;margin-top:-3px;margin-left:-5px;">
+      <b>金牌分析师</b>
+    </div>
+    <div class="p15 pr">
+      <div class="teacher clearfix switchbox">
+        <a href="javascript:void(0)" class="t_p t_left switchLeft"></a>
+        <a href="javascript:void(0)" class="t_p t_right switchRight"></a>
+        <ul class="switchlist">
+          {loop source=get_cate_content($cate_id='26',$limit='0,30') }
+          <li class="swtchItem">
+            <a href="{print $v['url']/}" {print $v['target']/}>
+              <img src="{print $v['thumb_pic']/}" width="100" height="105" class="img" border="0" title="{print $v['title']/}" />
+            </a>
+            <div class="inner">
+              <b><a href="{print $v['url']/}" {print $v['target']/}>{print $v['title']/}</a></b>
+              <p class="t_dec"><a href="{print $v['url']/}" {print $v['target']/}>{print cn_substr($v['cate_short'],60)/}</a></p>
+            </div>
+            
+          </li>
+
+          {/loop}
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="wrap clearfix mb20">
+  <div class="ibox fl w380">
+    <div class="home_down" style="border-bottom:21px solid #e4e5e7;">
+      {loop source=get_cate_content($cate_id='24',$limit='0,1') }
+      <dl>
+        <dt>
+          <img src="{print $v['thumb_pic']/}" width="136" height="99"  border="0" title="{print $v['title']/}" />
+          <p class="hd_title">{print $v['title']/}</p>
+        </dt>
+        <dd>
+          <p>{print cn_substr($v['cate_short'],150)/}</p>
+          <a href="{print get_down($v['id'])/}"><img src="{path template/}/images/btn_download.gif"></a>
+        </dd>
+      </dl>
+      {/loop}
+    </div>
+    <div class="home_down">
+      {loop source=get_cate_content($cate_id='24',$limit='1,1') }
+      <dl>
+        <dt>
+          <img src="{print $v['thumb_pic']/}" width="136" height="99"  border="0" title="{print $v['title']/}" />
+          <p class="hd_title">{print $v['title']/}</p>
+        </dt>
+        <dd>
+          <p>{print cn_substr($v['cate_short'],150)/}</p>
+          <a href="{print get_down($v['id'])/}"><img src="{path template/}/images/btn_download.gif"></a>
+        </dd>
+      </dl>
+      {/loop}
+    </div>
+  </div>
+  <div class="ibox fl w380 ml20">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=13" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>行业信息</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='13',$limit='0,7') }
+          <li><em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],26)/}</a></li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ibox fr w380">
+    <div class="ihead">
+      <a href="{path article/}/article.php?id=29" class="more fr"><img src="{path template/}/images/ico_readmore.gif"></a>
+      <b>操作演示</b>
+    </div>
+    <div class="ibody">
+      <div class="p15">
+        <ul class="newlist">
+          {loop source=get_cate_content($cate_id='29',$limit='0,7') }
+          <li><em class="fr">{print date('Y-m-d',$v['updatetime'])/}</em><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print cn_substr($v['title'],26)/}</a></li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{include foot/}
+
+</body>
+</html>

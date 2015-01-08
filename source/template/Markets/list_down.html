@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print cateinfo('cate_info_seo')/}">
+<meta name="keywords" content="{print cateinfo('cate_key_seo')/}">
+<title>{print cateinfo('cate_title_seo')/}_{print webinfo('web_name')/}</title>
+<!-- css -->
+    <link type="text/css" rel="stylesheet" href="{path template/}/style/common.css" media="screen" />
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+{include head/}
+
+<div class="wrap mb20">
+  <div class="col2 clearfix">
+    {include left/}
+    <div class="main">
+      <div class="mainbox">
+        <div class="maintitle pr">
+          <div class="fr">{position source=position/}</div>
+          <b class="tit">{print get_cate(out_id())/}</b>
+        </div>
+        <div class="mainbody">
+          <ul class="newslist_pic">
+            {loop  source=list_article()}
+              <li>
+                <a href="{print $v['url']/}" {print $v['target']/}><img src="{print $v['thumb_pic']/}" width="150" height="90"  border="0" title="{print $v['title']/}" />
+                <div class="pic_tite"><a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print $v['title']/}</a></div>
+                <div class="pic_info">
+                  <a href="{print $v['url']/}" {print $v['target']/} style="{print $v['style']/}">{print $v['cate_short']/}</a>
+                </div>
+              </li>
+            {/loop}
+          </ul>
+          <div class="list_page">
+            <div class="page_fy">
+              {print list_page()/}
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{include foot/}
+</body>
+</html>

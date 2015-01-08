@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>开通模拟账户</title>
+<!-- css -->
+    <link type="text/css" rel="stylesheet" href="{path template/}/style/common.css" media="screen" />
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+
+<div class="innerheader mb20 inner004">
+	<div class="wrap">
+		<div class="hotline">
+	      <div class="fl">
+	        仲泰业投资有限公司<br>
+	        <span>长三角交易所131号会员单位</span>
+	      </div>
+	      财富热线：4000897771
+	    </div>
+		<div class="nav">
+			<div class="logo"><img src="{path template/}/images/logo.gif"></div>
+			<ul>
+
+	        <li class="{print get_web_param('index_focus')/}"><a href="{path index/}" class="n">首页</a></li>
+
+	         {loop source=nav_middle() item=$nav_child} 
+	        <li class="{print $nav_child['class']/}"><a href="{print $nav_child['url']/}" class="n" {print $nav_child['target']/}><span>{print $nav_child['cate_name']/}</span></a>
+	          {if $nav_child['id']!=26}
+	          <div class="hide nav_sub opac80 ">
+	            <div class="cbox c{print $nav_child['id']/}">
+	            {loop source=$nav_child['child']}
+	            <a href="{print $v['url']/}"> {print $v['cate_name']/} </a>
+	            {/loop}
+	            </div>
+	          </div>
+	          {/if}
+	                            
+	      </li>
+	      {/loop}
+	      </ul>
+		</div>
+
+	</div>
+	
+</div>
+
+
+<div class="wrap mb20">
+	<iframe style="width:980px;height:830px;background-color:#fff;" marginWidth=0 marginHeight=0 src=" http://58.215.166.104:16987/SelfOpenAccount/first.jsp?memberno=131" frameBorder=0 scrolling=no></iframe>
+</div>
+{include foot/}
+</body>
+</html>

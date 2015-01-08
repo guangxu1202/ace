@@ -1,0 +1,29 @@
+    <div class="leftbar">
+      {assign source=get_tpl_list_nav() name=tree/}
+      {if $tree}
+      <!-- <h2 class="title"><span class="pr_icon">Product navigation</span></h2> -->
+      <ul class="subnav">
+        {loop source=$tree}
+       <li class="{print $v['class']/}"><span></span><a href="{print $v['url']/}" {print $v['target']/} title="{print $v['cate_name']/}">{print $v['cate_name']/}</a></li>
+       {/loop}
+      </ul>
+      {/if}
+      <div class="ader">
+        <a href="{path account/}/Formal.php"><img src="{path template/}/images/ad001.gif"></a>
+      </div>
+      
+
+      <ul class="subnav02">
+        <li><a href="{path account/}/Virtual.php">开通模拟账户</a></li>
+        <li><a href="{path alone/}/alone.php?id=21">开户流程</a></li>
+        <li><a href="{path down/}/down.php?id=24">软件下载</a></li>
+      </ul>
+
+      <div class="ader">
+        <img src="{path template/}/images/left01.jpg">
+      </div>
+
+      <!-- <div class="ader">
+        <img src="{path template/}/images/left02.jpg">
+      </div> -->
+    </div>
